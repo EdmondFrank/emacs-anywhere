@@ -13,4 +13,6 @@ $EA_EDITOR -e "(progn
                  (defconst ea-y $EA_Y)
                  (defconst ea-width $EA_WIDTH)
                  (defconst ea-height $EA_HEIGHT)
+                 (defconst ea-mouse-x $EA_MOUSE_X)
+                 (defconst ea-mouse-y $EA_MOUSE_Y)
                  $ELISP)"

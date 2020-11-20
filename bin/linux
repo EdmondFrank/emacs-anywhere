@@ -9,6 +9,9 @@ EA_TGEO=$( xwininfo -id $EA_WINDOW |\
               grep -oE '[^ ]+$' )
 EA_GEO=($EA_TGEO)
 
+EA_MOUSE=$( xdotool getmouselocation  | awk '{print $1, $2}' | grep -oE '[0-9]+' )
+EA_MOUSE0=($EA_MOUSE)
+
 export EA_APP_NAME
 export EA_WINDOW_TITLE
 if [ "${EA_GEO[0]}" = "${EA_GEO[2]}" ]; then
@@ -21,6 +24,9 @@ if [ "${EA_GEO[1]}" = "${EA_GEO[3]}" ]; then
 else
     export EA_Y=$(expr "${EA_GEO[1]}" - "${EA_GEO[3]}")
 fi
+export EA_MOUSE_X="${EA_MOUSE0[0]}"
+export EA_MOUSE_Y="${EA_MOUSE0[1]}"
+
 export EA_WIDTH="${EA_GEO[4]}"
 export EA_HEIGHT="${EA_GEO[5]}"
 

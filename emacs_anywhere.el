@@ -49,6 +49,8 @@ Functions are run with args APP-NAME WINDOW-TITLE X Y WIDTH HEIGHT")
   (setq ea-paste t) ; begin each session with paste enabled
   (add-hook 'delete-frame-functions 'ea--delete-frame-handler)
   (switch-to-buffer ea--buffer-name)
+  (set-frame-size (selected-frame) 37 7)
+  (set-frame-position (selected-frame) ea-mouse-x ea-mouse-y)
   (select-frame-set-input-focus (selected-frame))
   (run-hook-with-args 'ea-popup-hook
                       ea-app-name
